@@ -1,0 +1,49 @@
+<h1>Listing educational_qualifications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>College</th>
+      <th>Course</th>
+      <th>Subject</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Percentage</th>
+      <th>User</th>
+      <th>Resume</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Rollnumber</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @educational_qualifications.each do |educational_qualification| %>
+      <tr>
+        <td><%= educational_qualification.college %></td>
+        <td><%= educational_qualification.course %></td>
+        <td><%= educational_qualification.subject %></td>
+        <td><%= educational_qualification.start_date %></td>
+        <td><%= educational_qualification.end_date %></td>
+        <td><%= educational_qualification.percentage %></td>
+        <td><%= educational_qualification.user_id %></td>
+        <td><%= educational_qualification.resume_id %></td>
+        <td><%= educational_qualification.city %></td>
+        <td><%= educational_qualification.state %></td>
+        <td><%= educational_qualification.country %></td>
+        <td><%= educational_qualification.rollnumber %></td>
+        <td><%= link_to 'Show', educational_qualification %></td>
+        <td><%= link_to 'Edit', edit_educational_qualification_path(educational_qualification) %></td>
+        <td><%= link_to 'Destroy', educational_qualification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Educational qualification', new_educational_qualification_path %>

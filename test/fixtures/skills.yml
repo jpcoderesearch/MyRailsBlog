@@ -2,10 +2,22 @@
 
 one:
   name: MyString
+  version: MyString
+  last_used: 2020-04-08
+  project: MyString
   percentage: 1
+  expert_level: MyString
   user_id: 1
+  resume_id: 1
+  company_id: 1
 
 two:
   name: MyString
+  version: MyString
+  last_used: 2020-04-08
+  project: MyString
   percentage: 1
+  expert_level: MyString
   user_id: 1
+  resume_id: 1
+  company_id: 1

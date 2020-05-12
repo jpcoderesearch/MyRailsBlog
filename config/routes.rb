@@ -1,4 +1,20 @@
 MyRailsBlog::Application.routes.draw do
+  resources :companies
+
+  resources :projects
+
+  resources :addresses
+
+  resources :skills
+
+  resources :languages
+
+  resources :educational_qualifications
+
+  resources :experiences
+
+  resources :resumes
+
   devise_for :users
   resources :users
 

@@ -1,0 +1,142 @@
+
+
+
+
+  <div class="w3-container">
+  <%= link_to 'New Resume',new_resume_path ,  :class => 'w3-button w3-red w3-card-4'%>
+  <div class="w3-panel w3-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @resumes.each do |resume| %>
+            <tr>
+              <td><%= resume.name %></td>
+              <td><%= link_to 'Show', resume %></td>
+              <td><%= link_to 'Edit', edit_resume_path(resume) %></td>
+              <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>    
+  </div>
+
+      
+
+   
+
+    <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-teal w3-left-align">Skills</button>
+    <div id="Demo1" class="w3-hide w3-container">
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+          <%Skill.all.each do |sk|%>
+          <tr>
+            <td><%= sk.name %></td>
+    <!--          <td><button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i></button> </td> -->
+             <td><%= link_to 'Edit', edit_skill_path(sk) %></td>
+          </tr>
+          <%end%>
+        </table><br>
+    </div>
+    <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-teal w3-left-align">Projects</button>
+    <div id="Demo2" class="w3-hide w3-container">
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+          <%Project.all.each do |pro|%>
+          <tr>
+            <td><%= pro.name %></td>
+             <td><%= link_to 'Edit', edit_project_path(pro) %></td>
+          </tr>
+          <%end%>
+        </table><br>
+    </div>    
+    <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-teal w3-left-align">Companies</button>
+    <div id="Demo3" class="w3-hide w3-container">
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+          <%Company.all.each do |pro|%>
+          <tr>
+            <td><%= pro.name %></td>
+             <td><%= link_to 'Edit', edit_company_path(pro) %></td>
+          </tr>
+          <%end%>
+        </table><br>
+    </div>    
+    <button onclick="myFunction('Demo4')"class="w3-button w3-block w3-teal w3-left-align">Qualification</button>
+    <div id="Demo4" class="w3-hide w3-container">
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+          <%EducationalQualification.all.each do |pro|%>
+          <tr>
+            <td><%= pro.course %></td>
+             <td><%= link_to 'Edit', edit_educational_qualification_path(pro) %></td>
+          </tr>
+          <%end%>
+        </table><br>
+    </div>   
+    <button onclick="myFunction('Demo5')"class="w3-button w3-block w3-teal w3-left-align">Address</button>
+    <div id="Demo5" class="w3-hide w3-container">
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+          <%Address.all.each do |pro|%>
+          <tr>
+            <td><%= pro.city %></td>
+             <td><%= link_to 'Edit', edit_address_path(pro) %></td>
+          </tr>
+          <%end%>
+        </table><br>
+    </div>  
+    <button onclick="myFunction('Demo6')"class="w3-button w3-block w3-teal w3-left-align">Language</button>
+    <div id="Demo6" class="w3-hide w3-container">
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+          <%Language.all.each do |pro|%>
+          <tr>
+            <td><%= pro.name %></td>
+             <td><%= link_to 'Edit', edit_language_path(pro) %></td>
+          </tr>
+          <%end%>
+        </table><br>
+    </div>               
+  </div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace("w3-black", "w3-red");
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace("w3-red", "w3-black");
+  }
+}
+</script>
+</body>
+

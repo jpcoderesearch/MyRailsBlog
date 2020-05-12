@@ -3,9 +3,13 @@
 one:
   name: MyString
   percentage: MyString
+  expert_level: MyString
   user_id: 1
+  resume_id: 1
 
 two:
   name: MyString
   percentage: MyString
+  expert_level: MyString
   user_id: 1
+  resume_id: 1

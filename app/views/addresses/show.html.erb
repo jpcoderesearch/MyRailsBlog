@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @address.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @address.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @address.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @address.country %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @address.user_id %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+  <%= @address.resume_id %>
+</p>
+
+<p>
+  <strong>Office address:</strong>
+  <%= @address.office_address %>
+</p>
+
+<p>
+  <strong>Stay:</strong>
+  <%= @address.stay %>
+</p>
+
+<p>
+  <strong>Current address:</strong>
+  <%= @address.current_address %>
+</p>
+
+<p>
+  <strong>Permenent address:</strong>
+  <%= @address.permenent_address %>
+</p>
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Back', addresses_path %>

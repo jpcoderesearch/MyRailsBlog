@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>College:</strong>
+  <%= @educational_qualification.college %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @educational_qualification.course %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @educational_qualification.subject %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @educational_qualification.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @educational_qualification.end_date %>
+</p>
+
+<p>
+  <strong>Percentage:</strong>
+  <%= @educational_qualification.percentage %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @educational_qualification.user_id %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+  <%= @educational_qualification.resume_id %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @educational_qualification.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @educational_qualification.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @educational_qualification.country %>
+</p>
+
+<p>
+  <strong>Rollnumber:</strong>
+  <%= @educational_qualification.rollnumber %>
+</p>
+
+<%= link_to 'Edit', edit_educational_qualification_path(@educational_qualification) %> |
+<%= link_to 'Back', educational_qualifications_path %>

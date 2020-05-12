@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @skill.name %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @skill.version %>
+</p>
+
+<p>
+  <strong>Last used:</strong>
+  <%= @skill.last_used %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @skill.project %>
+</p>
+
+<p>
+  <strong>Percentage:</strong>
+  <%= @skill.percentage %>
+</p>
+
+<p>
+  <strong>Expert level:</strong>
+  <%= @skill.expert_level %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @skill.user_id %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+  <%= @skill.resume_id %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @skill.company_id %>
+</p>
+
+<%= link_to 'Edit', edit_skill_path(@skill) %> |
+<%= link_to 'Back', skills_path %>

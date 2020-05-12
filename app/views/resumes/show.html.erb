@@ -1,0 +1,126 @@
+<script>
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <%= image_tag "me.jpg", :class => "style_image" %>
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2><%= @resume.user.name %></h2>
+          </div>
+        </div>
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.user.present_job %></p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.user.present_city %></p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.user.email1 %></p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.user.phone %></p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          
+		      <% @resume.user.skills.each do |sk|%>
+          <span class="w3-tag w3-small w3-teal"><%= sk.name %></span>
+		      <% end %>     
+
+          <br>
+          <hr>
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+          <% @resume.user.languages.each do |la| %>
+          <span class="w3-tag w3-small w3-teal"><%= la.name %></span>
+          <% end %>
+          <br><hr>
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Objective:</b></p>
+          <div class="w3-panel w3-card w3-teal"><h6><%= objective%></h6></div>
+          <br>
+          <hr>
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Expertize:</b></p>
+          <% exper.split('.').each do |sk|%>
+          <h6><%= sk.strip %></h6>
+          <% end %>           
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+
+      		<% @resume.user.experiences.each do |exp|%>
+      		<% val = (exp.present == true) ? ("w3-tag w3-teal w3-round") : "" %>
+      		<% vall = (exp.present == true) ? "current" : exp.end_date.strftime("%B %Y") %>
+      	        <div class="w3-container">
+      	          <h5 class="w3-opacity"><b><%= exp.role %> / <%= exp.company %></b></h5>
+      	          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= exp.start_date.strftime("%B %Y") %> - 
+      	           <%= tag :span, :class => "#{val}" %> <%= vall %></h6>
+                   <% exp.companies.map {|i| i.projects}.flatten.each do |pro| %>
+                    <div class="w3-card-4" style="width:100%;">
+                      <header class="w3-container w3-teal">
+                        <h5><%= pro.name %></h5>
+                      </header>
+                      <div class="w3-container">
+                        <p><%= pro.description%></p>
+                        <div class="w3-card-4" style="width:100%;">
+                          <h5 class="w3-container w3-teal">
+                            <h4 class="w3-container w3-medium ">Responsibility </h4>
+                          </h5>                            
+                            <% if pro.achievements.present? %>
+                            <div class = "w3-pale-red">
+                            <ul>
+                             <% pro.achievements.split('.').each do |ach| %>
+                             <li><p><%= ach.strip %></p></li>
+                             <% end %>                    
+                            <% end %>  
+                            </ul>
+                          </div>
+
+                        </div>                        
+                      </div>
+                    </div><br>
+                  <% end %> 
+      	          <hr>
+      	        </div>
+      		<% end %>
+	     </div>
+
+      <div class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+   		<%@resume.user.educational_qualifications.each do |ed|%>
+        <table class="w3-table w3-striped w3-bordered w3-border">
+        <thead class="w3-teal"><th style="width:30%">Institute</th><th style="width:20%">Course</th><th style="width:20%">Subject</th><th  style="width:30%">Percentage</th><th style="width:20%">Year</th></thead>
+        <tr><td><%= ed.college%></td><td><%=ed.course %></td><td><%= ed.subject %></td><td><%=ed.percentage%></td><td><%= ed.end_date.strftime("%B %Y") %></td></tr>
+        </table>
+    	<% end %>
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<%= render "shared/footer"%>
+
+</body>
+
