@@ -3,8 +3,8 @@ require 'capistrano/setup'
 
 # Include default deployment tasks
 require 'capistrano/deploy'
-require 'capistrano/rails'
-require 'capistrano/passenger'
+# require 'capistrano/rails'
+# require 'capistrano/passenger'
 set :rbenv_type, :user
 set :rbenv_ruby, '2.2.5'
 
@@ -22,7 +22,7 @@ set :rbenv_ruby, '2.2.5'
 # require 'capistrano/rvm'
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
-require 'capistrano/bundler'
+# require 'capistrano/bundler'
 # require 'capistrano/rails/assets'
 # require 'capistrano/rails/migrations'
 # require 'capistrano/passenger'
