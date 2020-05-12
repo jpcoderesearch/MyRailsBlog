@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.14.0'
 
 set :application, 'my_rails_blog'
 set :repo_url, 'git@github.com:jpcoderesearch/MyRailsBlog.git'

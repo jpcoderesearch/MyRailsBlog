@@ -25,11 +25,11 @@
   </div>
   <div class="field">
     <%= f.label :start_date %><br>
-    <%= f.datetime_select :start_date %>
+    <%= f.datetime_select :start_date, { :include_blank => true, :start_year => 2000 } %>
   </div>
   <div class="field">
     <%= f.label :end_date %><br>
-    <%= f.datetime_select :end_date %>
+    <%= f.datetime_select :end_date, { :include_blank => true, :start_year => 2000 } %>
   </div>
   <div class="field">
     <%= f.label :percentage %><br>
